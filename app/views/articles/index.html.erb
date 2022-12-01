@@ -1,31 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Articles</h1>
-
-<div id="articles">
-  <% @articles.each do |article| %>
-    <%= render article %>
-    <p>
-      <%= link_to "Show this article", article %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New article", new_article_path %>
-
-<%= form_with(url: articles_path, method: :get, data: {controller: "search-form", turbo_frame: "articles", turbo_action: "advance"}) do |form| %>
-
-  <%= form.label :query, "Search by article name:", class: "block mb-2" %>
-  <div class="flex space-x-3">
-    <%= form.text_field :query, class: "py-3 px-4 rounded border ring-0 focus:ring-4 focus:ring-orange-100 focus:shadow-none focus:border-orange-500 focus:outline-none" %>
-
-    <%= form.submit 'Search', class: "px-4 py-3 font-medium
+<div class="flex-col">
+  <%= form_with(url: articles_path, method: :get, data: {controller: "search-form", turbo_frame: "articles", turbo_action: "advance"}) do |form| %>
+    <%= form.label :query, "Search by article name:", class: "block mb-2" %>
+    
+    <div class="flex space-x-3">
+      <%= form.text_field :query, class: "py-3 px-4 rounded border ring-0 focus:ring-4 focus:ring-orange-100 focus:shadow-none focus:border-orange-500 focus:outline-none" %>
+      <%= form.submit 'Search', class: "px-4 py-3 font-medium
   bg-orange-300 text-neutal-900 rounded flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-orange-100" %>
+    </div>
+
+  <% end %>
+
+  <div class="my-6">
+    <strong>Articles</strong>
+    <%= render "articles", articles: @articles %>
   </div>
-<% end %>
 
-<div class="my-6">
-  <%= render "articles", articles: @articles %>
+  <%= link_to "New Article", new_article_path, class: "px-4 py-3 font-medium bg-orange-300 text-neutal-900 rounded inline-flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-orange-100" %>
 </div>
-
-<%= link_to "New Article", new_article_path, class: "px-4 py-3 font-medium bg-orange-300 text-neutal-900 rounded inline-flex items-center cursor-pointer hover:bg-orange-400 focus:ring-4 ring-0 focus:ring-orange-100" %>
