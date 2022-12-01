@@ -13,7 +13,7 @@
 
 <%= link_to "New article", new_article_path %>
 
-<%= form_with(url: articles_path, method: :get, data: {turbo_frame: "articles", turbo_action: "advance"}) do |form| %>
+<%= form_with(url: articles_path, method: :get, data: {controller: "search-form", turbo_frame: "articles", turbo_action: "advance"}) do |form| %>
 
   <%= form.label :query, "Search by article name:", class: "block mb-2" %>
   <div class="flex space-x-3">
