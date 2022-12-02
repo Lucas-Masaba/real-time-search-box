@@ -13,5 +13,4 @@ RSpec.describe Article, type: :model do
   it 'subject should be valid' do
     expect(subject).to be_valid
   end
-
 end

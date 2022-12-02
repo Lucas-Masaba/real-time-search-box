@@ -13,6 +13,5 @@ RSpec.describe 'article show page', type: :feature do
       expect(page).to have_content('lucas')
       expect(page).to have_content('Edit this article')
     end
-
   end
 end

@@ -11,11 +11,9 @@ RSpec.describe 'Articles', type: :request do
     it 'Is the correct template rendered' do
       expect(response).to render_template('index')
     end
-
   end
 
   describe 'GET /show' do
-    
     before(:example) { get '/articles/:id' }
 
     it 'Is response status correct' do
@@ -25,5 +23,5 @@ RSpec.describe 'Articles', type: :request do
     it 'Is the correct template rendered' do
       expect(response).to render_template('show')
     end
-
+  end
 end

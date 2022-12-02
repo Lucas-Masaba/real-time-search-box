@@ -17,6 +17,5 @@ RSpec.describe 'article index', type: :feature do
       click_link 'lucas'
       expect(page).to have_current_path "/articles/#{@article.id}"
     end
-
   end
 end
